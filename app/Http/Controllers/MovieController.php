@@ -13,6 +13,17 @@ class MovieController extends Controller
         return view('movies.index', compact('movies'));
     }
 
+    public function like(Movie $movie)
+    {
+        $movie->increment('likes');
+        return back()->with('success', 'Kamu menyukai film ini!');
+    }
+    public function dislike($id)
+    {
+        $movie = Movie::findOrFail($id);
+        $movie->increment('dislikes');
+        return back();
+    }
 
     public function create()
     {

@@ -32,6 +32,25 @@
                         <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm">Hapus</button>
                     </form>
                 </div>
+
+                {{-- Tombol Like & Dislike --}}
+                <div class="flex justify-between items-center mt-4 space-x-2">
+                    <form action="{{ url('/movies/' . $movie->id . '/like') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
+                            ❤️ {{ $movie->likes }}
+                        </button>
+                    </form>
+                    
+
+                    <form action="{{ url('/movies/' . $movie->id . '/dislike') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm">
+                            💔 {{ $movie->dislikes }}
+                        </button>
+                    </form>
+                </div>
+
             </div>
         </div>
     @empty

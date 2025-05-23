@@ -16,5 +16,7 @@ class Movie extends Model
         'genre',
         'release_year',
         'gambar',
+        'likes',       // Tambahkan ini
+        'dislikes',    // Tambahkan ini juga
     ];
 }
